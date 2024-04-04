@@ -4,7 +4,7 @@ on:
     tags:
       - "v*"
 env:
-  GH_USER: aqua-bot
+  GH_USER: simar7
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ env.GH_USER }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.MYPAT }}
       - name: Deploy to GitHub Packages Container registry
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
